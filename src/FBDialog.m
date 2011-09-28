@@ -135,14 +135,17 @@ BOOL FBIsDeviceIPad() {
   CGColorSpaceRelease(space);
 }
 
-- (BOOL)shouldRotateToOrientation:(UIDeviceOrientation)orientation {
+- (BOOL)shouldRotateToOrientation:(UIInterfaceOrientation)orientation {
   if (orientation == _orientation) {
     return NO;
-  } else {
-    return orientation == UIDeviceOrientationLandscapeLeft
+  }
+  else
+  {
+     return YES;
+    /*return orientation == UIDeviceOrientationLandscapeLeft
       || orientation == UIDeviceOrientationLandscapeRight
       || orientation == UIDeviceOrientationPortrait
-      || orientation == UIDeviceOrientationPortraitUpsideDown;
+      || orientation == UIDeviceOrientationPortraitUpsideDown;*/
   }
 }
 
@@ -296,7 +299,7 @@ BOOL FBIsDeviceIPad() {
   if (self = [super initWithFrame:CGRectZero]) {
     _delegate = nil;
     _loadingURL = nil;
-    _orientation = UIDeviceOrientationUnknown;
+     _orientation = UIInterfaceOrientationPortrait;
     _showingKeyboard = NO;
 
     self.backgroundColor = [UIColor clearColor];
@@ -448,7 +451,7 @@ BOOL FBIsDeviceIPad() {
 // UIDeviceOrientationDidChangeNotification
 
 - (void)deviceOrientationDidChange:(void*)object {
-  UIDeviceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+  UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
   if (!_showingKeyboard && [self shouldRotateToOrientation:orientation]) {
     [self updateWebOrientation];
 
