@@ -28,19 +28,19 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "SBJsonParser.h"
-#import "SBJsonWriter.h"
+#import "CE_SBJsonParser.h"
+#import "CE_SBJsonWriter.h"
 
 /**
  @brief Facade for SBJsonWriter/SBJsonParser.
 
  Requests are forwarded to instances of SBJsonWriter and SBJsonParser.
  */
-@interface SBJSON : SBJsonBase <SBJsonParser, SBJsonWriter> {
+@interface CE_SBJSON : CE_SBJsonBase <CE_SBJsonParser, CE_SBJsonWriter> {
 
 @private    
-    SBJsonParser *jsonParser;
-    SBJsonWriter *jsonWriter;
+    CE_SBJsonParser *jsonParser;
+    CE_SBJsonWriter *jsonWriter;
 }
 
 
